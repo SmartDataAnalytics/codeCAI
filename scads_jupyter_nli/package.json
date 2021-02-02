@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/KlaudiaTH/scads-cai-demonstrator/issues"
   },
-  "license": "BSD-3-Clause",
+  "license": "Proprietary",
   "author": "Klaudia Thellmann and Bernhard Stadler",
   "files": [
     "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
