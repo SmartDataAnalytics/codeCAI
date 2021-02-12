@@ -5,29 +5,57 @@ intents:
   - goodbye
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - kmeans_clustering
+  - create_sample_data
+  - train_kmeans_model
+  - predict_clusters
+  - compare_clusters_orig_model
+  - decision_tree
+  - load_iris_data
+  - train_decision_tree_classifier
+  - export_tree_as_text_and_print
+  - debug_sample
 
 actions:
-  - action_hello_world
+  - action_debug
+  - action_nl2code
+  - action_organize_kmeans_imports
+  - action_organize_decision_tree_imports
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Hey!"
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_what_task_should_we_perform:
+  - text: "What task do you want me to help you with?"
 
-  utter_did_that_help:
-  - text: "Did that help you?"
+  utter_lets_create_a_sample_dataset:
+  - text: "For the kmeans clustering we need a sample dataset. Please specify at least the number of samples and cluster centers."
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_instantiate_and_train_kmeans_model:
+  - text: "Next, we need to instantiate the kmeans model and specify the number of clusters. Let me know when you are ready to train the model!"
+
+  utter_predict_clusters:
+    - text: "Is the training done? Just signal me to proceed with the prediction step."
+
+  utter_compare_orig_data_with_model_clustering:
+    - text: "If you like, I can show you the clusters and compare them with the original data."
+
+  utter_anything_else:
+  - text: "Is there anything else for the clustering?"
+
+  utter_load_iris_dataset:
+    - text: "For training a decision tree classifier we can use the iris dataset from scikit-learn. Tell me if you want to load the iris dataset."
+
+  utter_instantiate_and_train_decision_tree_classifier :
+    - text: "Next we need to instantiate a decision tree classifier. You can specify the random state and the max depth. Tell me when you are ready to start the training!"
+
+  utter_export_tree_as_text_and_print:
+    - text: "After the training is done, let's have a look at the tree model. I could export the model in textual format and print it."
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye"
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."

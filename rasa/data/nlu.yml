@@ -1,6 +1,121 @@
 version: "2.0"
 
 nlu:
+- intent: kmeans_clustering
+  examples: |
+    - kmeans
+    - clustering
+    - cluster
+    - clusters
+    - kmeans clustering
+    - k means
+    - k means clustering
+    - k-means
+    - k-means clustering
+    - sklearn.cluster
+
+- intent: create_sample_data
+  examples: |
+    - generate data
+    - create dataset
+    - create a dataset with
+    - samples
+    - features
+    - deviation
+    - standard deviation
+    - set standard deviation
+    - make_blobs
+    - raw_data
+    - make_blobs
+    - n_samples
+    - n_features
+    - centers
+    - cluster_std
+    - sklearn.datasets
+    - use make_blob function to generate data
+
+- intent: train_kmeans_model
+  examples: |
+    - create an instance of KMeans class
+    - initialize k-means with
+    - k-means++
+    - n_clusters
+    - n_init
+    - fit kmeans
+    - fit k means
+    - fit k-means
+    - train model
+    - train the model
+    - invoke fit
+    - invoke fit mehod
+    - k means model
+    - k-means model
+    - kmeans model
+    - KMeans
+    - model
+
+- intent: predict_clusters
+  examples: |
+    - predict clusters
+    - predict cluster
+    - predict which cluster each data point belongs
+    - predict the cluster for all samples
+    - labels_
+    - check where the center of each cluster lies
+    - center
+    - centers
+    - cluster center
+    - cluster centers
+    - cluster_centers_
+
+- intent: compare_clusters_orig_model
+  examples: |
+    - scatter plot
+    - generate scatter plot
+    - visualize scatter plot
+    - set color
+    - gist_rainbow
+    - cmap
+    - show the clusters
+    - show clusters according
+    - use matplotlib to plot a scatter plot
+
+- intent: decision_tree
+  examples: |
+    - decision tree
+    - decision tree classifier
+    - decision tree classificator
+    - classification task
+    - classifier
+    - classificator
+    - classification
+    - class
+    - tree
+
+- intent: load_iris_data
+  examples: |
+    - iris
+    - iris data
+    - iris dataset
+    - iris data set
+    - load iris dataset
+    - load_iris
+
+- intent: train_decision_tree_classifier
+  examples: |
+    - instantiate decision tree
+    - instantiate decision tree classifier
+    - train decision tree
+    - train decision tree classifier
+    - train the decision tree classifier
+
+- intent: export_tree_as_text_and_print
+  examples: |
+    - export iris decision tree
+    - textual format
+    - print results
+    - export_text
+
 - intent: greet
   examples: |
     - hey
@@ -49,6 +164,7 @@ nlu:
     - don't like that
     - no way
     - not really
+    - no, thank you
 
 - intent: mood_great
   examples: |
@@ -90,3 +206,9 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: debug_sample
+  examples: |
+    - import
+    - foo
+    - bar

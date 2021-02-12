@@ -2,29 +2,53 @@ version: "2.0"
 
 stories:
 
-- story: happy path
+- story: kmeans clustering
   steps:
   - intent: greet
-  - action: action_hello_world
-  - intent: mood_great
-  - action: utter_happy
-
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: action_hello_world
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: action_hello_world
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+  - action: utter_greet
+  - action: utter_what_task_should_we_perform
+  - intent: kmeans_clustering
+  - action: action_organize_kmeans_imports
+  - action: utter_lets_create_a_sample_dataset
+  - intent: create_sample_data
+  - action: action_nl2code
+  - action: utter_instantiate_and_train_kmeans_model
+  - intent: train_kmeans_model
+  - action: action_nl2code
+  - action: utter_predict_clusters
+  - intent: predict_clusters
+  - action: action_nl2code
+  - action: utter_compare_orig_data_with_model_clustering
+  - intent: compare_clusters_orig_model
+  - action: action_nl2code
+  - action: utter_anything_else
   - intent: deny
+  - action: utter_goodbye
+
+- story: decision tree classifier
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_what_task_should_we_perform
+  - intent: decision_tree
+  - action: action_organize_decision_tree_imports
+  - action: utter_load_iris_dataset
+  - intent: load_iris_data
+  - action: action_nl2code
+  - action: utter_instantiate_and_train_decision_tree_classifier
+  - intent: train_decision_tree_classifier
+  - action: action_nl2code
+  - action: utter_export_tree_as_text_and_print
+  - intent: export_tree_as_text_and_print
+  - action: action_nl2code
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: debug sample
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: debug_sample
+  - action: action_nl2code
+  - intent: goodbye
   - action: utter_goodbye
