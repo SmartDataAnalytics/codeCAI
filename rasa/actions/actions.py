@@ -60,7 +60,7 @@ class ActionNl2Code(Action):
          _, _, code_snippet = prediction[0]
          print('code_snippet', code_snippet)
 
-         dispatcher.utter_message(text=code_snippet)
+         dispatcher.utter_message(json_message={"nl_input": nl_input, "code_snippet": code_snippet})
 
          return []
 
