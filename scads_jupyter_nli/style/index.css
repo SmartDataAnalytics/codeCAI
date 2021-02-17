@@ -1,1 +1,18 @@
 @import url('base.css');
+
+.scads-nli-message-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: auto;
+}
+
+.scads-nli-send-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#scads-jupyter-nli-chat-tab {
+    background-color: var(--jp-layout-color1);
+}
