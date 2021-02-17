@@ -1,18 +1,41 @@
 @import url('base.css');
 
-.scads-nli-message-input {
+.scads-nli-panel {
+    background: var(--jp-layout-color3);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    overflow: auto;
+}
+
+.scads-nli-chat-history {
+    display: flex;
+    flex-direction: column-reverse;
+	flex-grow: 1;
+	background-color: var(--jp-layout-color2);
+    overflow-y: auto;
+}
+
+.scads-nli-message-input {
+	overflow: auto;
+	resize: vertical;
 }
 
 .scads-nli-send-button {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+	align-items: flex-end;
+	border-radius: 0.5ex;
+	padding: 0.5ex 0.5ex 0.25ex 0.5ex;
 }
 
-#scads-jupyter-nli-chat-tab {
-    background-color: var(--jp-layout-color1);
+.scads-nli-chat-message {
+	background-color: var(--jp-layout-color1);
+	border-radius: 0.5ex;
+	margin: 0.5ex;
+	width: 75%;
+	padding: 0.5ex 0.5ex 0ex 0.5ex;
+}
+
+.scads-nli-chat-message-out {
+    align-self: flex-begin;
+}
+.scads-nli-chat-message-in {
+    align-self: flex-end;
 }

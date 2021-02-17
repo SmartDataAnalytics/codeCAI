@@ -2,78 +2,27 @@ import {
   JupyterFrontEnd,
   JupyterFrontEndPlugin
 } from '@jupyterlab/application';
-import { ICommandPalette, ReactWidget, UseSignal } from '@jupyterlab/apputils';
+import { ICommandPalette } from '@jupyterlab/apputils';
 import { CodeCell, MarkdownCell } from '@jupyterlab/cells';
-import { ScrollingWidget } from '@jupyterlab/logconsole';
 import {
   INotebookTracker,
   Notebook,
   NotebookActions,
   NotebookPanel
 } from '@jupyterlab/notebook';
-import { Signal } from '@lumino/signaling';
 import { Panel, Widget } from '@lumino/widgets';
-import * as React from 'react';
 
 interface IBackendResponseMessage {
   recipient_id: string;
   text?: string;
   image?: string;
-  json_message?: {
+  custom?: {
     nl_input?: string;
     code_snippet?: string;
   }
 }
 
-interface IChatHistoryMessage {
-  senderName: string;
-}
-
-interface IOutgoingChatHistoryMessage extends IChatHistoryMessage {
-  direction: 'outgoing';
-}
-
-interface IIncomingChatHistoryMessage extends IChatHistoryMessage {
-  direction: 'incoming';
-}
-
-export type ChatHistoryMessageByDirection =
-  | IOutgoingChatHistoryMessage
-  | IIncomingChatHistoryMessage;
-
-interface ITextChatHistoryMessage extends IChatHistoryMessage {
-  contentType: 'text';
-  text: string;
-}
-
-interface IImageChatHistoryMessage extends IChatHistoryMessage {
-  contentType: 'image';
-  imageUrl: string;
-}
-
-export type ChatHistoryMessageByContent =
-  | ITextChatHistoryMessage
-  | IImageChatHistoryMessage;
-
-function ChatHistoryComponent(props: {
-  signal: Signal<ChatHistoryWidget, IChatHistoryMessage[]>;
-}) {
-  return (
-    <UseSignal signal={props.signal}>
-      {(widget, messages) => <div> foo </div>}
-    </UseSignal>
-  );
-}
-
-class ChatHistoryWidget extends ReactWidget {
-  render() {
-    return <ChatHistoryComponent signal={this._signal} />;
-  }
-
-  private _signal = new Signal<this, IChatHistoryMessage[]>(this);
-}
-
-class ChatTab extends Panel {
+class NL2CodePanel extends Panel {
   readonly chatHistory: HTMLDivElement;
   readonly inputField: HTMLTextAreaElement;
   readonly sendButton: HTMLInputElement;
@@ -83,7 +32,7 @@ class ChatTab extends Panel {
   constructor(
     notebookTracker: INotebookTracker,
     rasaRestEndpoint: string,
-    id = 'scads-jupyter-nli-panel',
+    id = 'scads-nli-panel',
     label = 'ScaDS NLI',
     options: Panel.IOptions = {}
   ) {
@@ -93,9 +42,12 @@ class ChatTab extends Panel {
     this.title.label = label;
     this.title.closable = true;
 
+    this.addClass('scads-nli-panel')
+
     this.chatHistory = document.createElement('div')
+    this.chatHistory.classList.add('scads-nli-chat-history')
     let chatHistoryWidget = new Widget({ node: this.chatHistory })
-    this.addWidget(new ScrollingWidget({ content: chatHistoryWidget }));
+    this.addWidget(chatHistoryWidget);
 
     this.inputField = this.createInputField();
     this.addWidget(new Widget({ node: this.inputField }));
@@ -125,6 +77,14 @@ class ChatTab extends Panel {
     return sendButton;
   }
 
+  logChatMessage = (sender: string, message: string, direction: 'in' | 'out') => {
+    let chatMessage = document.createElement('p')
+    chatMessage.classList.add('scads-nli-chat-message')
+    chatMessage.classList.add(`scads-nli-chat-message-${direction}`)
+    chatMessage.textContent = sender + ": " + message;
+    this.chatHistory.insertBefore(chatMessage, this.chatHistory.children[0])
+  }
+
   sendButtonClicked = (evt: Event) => {
     const notebookPanel: NotebookPanel = this.notebookTracker.currentWidget;
     if (notebookPanel !== null) {
@@ -134,12 +94,7 @@ class ChatTab extends Panel {
       let message = this.inputField.value
 
       const body = { sender, message };
-
-      let chatMessage = document.createElement('p')
-      chatMessage.textContent = sender + ": " + message;
-      this.chatHistory.appendChild(chatMessage)
-
-      console.log('Sending:', body);
+      this.logChatMessage(sender, message, 'out')
       this.sendButton.disabled = true;
       this.insertTextMarkdownCell(notebook, `${body.sender}: ${body.message}`);
       fetch(`${this.rasaRestEndpoint}/webhooks/rest/webhook`, {
@@ -157,17 +112,15 @@ class ChatTab extends Panel {
             this.sendButton.disabled = false;
 
             responseData.forEach(response => {
-              if (typeof response.text !== 'undefined') {
-                let chatMessage = document.createElement('p')
-                chatMessage.textContent = response.recipient_id + ":" + response.text;
-                this.chatHistory.appendChild(chatMessage)
+              if (typeof response.text !== 'undefined' && response.text !== null) {
+                this.logChatMessage('Bot', response.text, 'in')
               }
-              if (typeof response.image !== 'undefined') {
+              if (typeof response.image !== 'undefined' && response.image !== null) {
                 this.insertImageMarkdownCell(notebook, response.image);
               }
-              if (typeof response.json_message !== 'undefined') {
-                let json_message = response.json_message
-                this.insertCommentCodeCell(notebook, json_message.code_snippet, json_message.nl_input);
+              if (typeof response.custom !== 'undefined' && response.custom !== null) {
+                let json_message = response.custom
+                this.insertCommentCodeCell(notebook, json_message.nl_input, json_message.code_snippet);
               }
             });
           },
@@ -193,10 +146,10 @@ class ChatTab extends Panel {
     const activeCell = this.notebookTracker.activeCell;
     if (activeCell instanceof CodeCell) {
       let text = '';
-      if (typeof comment !== 'undefined') {
+      if (typeof comment !== 'undefined' && comment != null) {
         text += `# ${comment}\n`;
       }
-      if (typeof code !== 'undefined') {
+      if (typeof code !== 'undefined' && code != null) {
         text += code;
       }
 
@@ -231,7 +184,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     const rasaRestEndpoint = 'http://localhost:5005';
 
-    const chatTab = new ChatTab(notebookTracker, rasaRestEndpoint);
+    const chatTab = new NL2CodePanel(notebookTracker, rasaRestEndpoint);
 
     const command = 'sjn:open';
     app.commands.addCommand(command, {
