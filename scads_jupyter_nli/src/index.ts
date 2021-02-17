@@ -55,6 +55,12 @@ class NL2CodePanel extends Panel {
     this.sendButton = this.createSend();
     this.addWidget(new Widget({ node: this.sendButton }));
 
+    this.inputField.addEventListener('keydown', (ev: KeyboardEvent) => {
+      if (ev.ctrlKey && ev.key == 'Enter') {
+        this.sendButton.click()
+      }
+    })
+
     this.notebookTracker = notebookTracker;
     this.rasaRestEndpoint = rasaRestEndpoint;
   }
