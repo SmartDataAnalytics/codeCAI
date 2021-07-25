@@ -56,7 +56,7 @@ class NL2CodePanel extends Panel {
     this.addWidget(new Widget({ node: this.sendButton }));
 
     this.inputField.addEventListener('keydown', (ev: KeyboardEvent) => {
-      if (ev.ctrlKey && ev.key == 'Enter') {
+      if (ev.key == 'Enter' && !(ev.ctrlKey || ev.shiftKey)) {
         this.sendButton.click()
       }
     })
@@ -102,7 +102,6 @@ class NL2CodePanel extends Panel {
       const body = { sender, message };
       this.logChatMessage(sender, message, 'out')
       this.sendButton.disabled = true;
-      this.insertTextMarkdownCell(notebook, `${body.sender}: ${body.message}`);
       fetch(`${this.rasaRestEndpoint}/webhooks/rest/webhook`, {
         method: 'POST',
         body: JSON.stringify(body),
