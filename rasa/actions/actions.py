@@ -1,17 +1,16 @@
+import os
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
 
 import torch
 import yaml
-
-import os
-
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
 from scads_cai_prototype.beamsearch import BeamSearch
 from scads_cai_prototype.generator.codegenerator import PythonCodeGenerator
 from scads_cai_prototype.grammar.grammargraphloader import GrammarGraphLoader
+from scads_cai_prototype.nl2code import load_checkpoint
 from scads_cai_prototype.preprocessing.preprocinf import Preprocinf
-from scads_cai_prototype.transformerinf import Transformer
+from scads_cai_prototype.transformer import Transformer
 
 
 class ActionNl2Code(Action):
@@ -23,7 +22,8 @@ class ActionNl2Code(Action):
 
         self.preprocinf = Preprocinf(parsed_nl2code_yaml["preproc"]["vocabsrc-file"])
 
-        model = Transformer.load_from_checkpoint(parsed_nl2code_yaml["model_conf"]["test-model-path"])
+        system = load_checkpoint(parsed_nl2code_yaml["model_conf"]["test-model-path"], {})
+        model = system.model
         grammargraph = GrammarGraphLoader(parsed_nl2code_yaml["model_conf"]["grammar-graph-file"]).load_graph()
         codegenerator = PythonCodeGenerator(grammargraph)
 
