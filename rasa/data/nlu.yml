@@ -1,6 +1,22 @@
 version: "2.0"
 
 nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - hey there
+
+- intent: ml_methods
+  examples: |
+    - machine learning methods
+    - machine learning
+    - ml methods
+    - methods for machine learning
+    - methods for ml
+
 - intent: kmeans_clustering
   examples: |
     - kmeans
@@ -12,73 +28,59 @@ nlu:
     - k means clustering
     - k-means
     - k-means clustering
-    - sklearn.cluster
+
+- intent: input_kmeans
+  examples: |
+    - input for K-means
+    - input K-means
+    - input configuration
+    - input for clustering
 
 - intent: create_sample_data
   examples: |
     - generate data
     - create dataset
+    - generate a dataset
+    - generate a dataset with samples and cluster centers
+    - generate a dataset wit some samples
     - create a dataset with
-    - samples
-    - features
-    - deviation
-    - standard deviation
-    - set standard deviation
-    - make_blobs
-    - raw_data
-    - make_blobs
-    - n_samples
-    - n_features
-    - centers
-    - cluster_std
-    - sklearn.datasets
+    - create a data set with 200 samples and 4 cluster centers
+    - generate a dataset with 200 samples and 2 cluster centers
+    - generate data set with samples and cluster centers.
     - use make_blob function to generate data
 
-- intent: train_kmeans_model
+- intent: initialize_kmeans
   examples: |
     - create an instance of KMeans class
-    - initialize k-means with
-    - k-means++
-    - n_clusters
-    - n_init
-    - fit kmeans
+    - initialize the kmeans model and specify the number of clusters
+    - initialize k-means
+    - initialize kmeans
+    - initialize kmeans model
+
+- intent: fit_kmeans
+  examples: |
+    - fit kmeans model
+    - fit k-means model
     - fit k means
     - fit k-means
     - train model
+    - train kmeans model
+    - Train kmeans model.
     - train the model
     - invoke fit
     - invoke fit mehod
-    - k means model
-    - k-means model
-    - kmeans model
-    - KMeans
-    - model
 
-- intent: predict_clusters
+- intent: predict_plot_clusters
   examples: |
-    - predict clusters
-    - predict cluster
-    - predict which cluster each data point belongs
-    - predict the cluster for all samples
-    - labels_
-    - check where the center of each cluster lies
-    - center
-    - centers
-    - cluster center
-    - cluster centers
-    - cluster_centers_
-
-- intent: compare_clusters_orig_model
-  examples: |
-    - scatter plot
-    - generate scatter plot
-    - visualize scatter plot
-    - set color
-    - gist_rainbow
-    - cmap
+    - visualize clusters
+    - Visualize the clusters
+    - visualize clusters
     - show the clusters
-    - show clusters according
-    - use matplotlib to plot a scatter plot
+    - plot the clusters
+    - Plot clusters
+    - Show the clusters according to the original data set.
+    - Show the clusters.
+    - Plot the clusters.
 
 - intent: decision_tree
   examples: |
@@ -86,25 +88,35 @@ nlu:
     - decision tree classifier
     - decision tree classificator
     - classification task
-    - classifier
-    - classificator
-    - classification
-    - class
-    - tree
+
+- intent: example_dataset
+  examples: |
+    - example data
+    - Example dataset
+    - example dataset for classification
+    - Example data for classification
 
 - intent: load_iris_data
   examples: |
-    - iris
     - iris data
     - iris dataset
-    - iris data set
+    - load iris data set
     - load iris dataset
-    - load_iris
+
+- intent: decision_tree_params
+  examples: |
+    - parameters for decision tree
+    - parameters to create decision tree
+    - parameters to initialize a decision tree
+
+- intent: instantiate_decision_tree_classifier
+  examples: |
+    - instantiate decision tree
+    - instantiate classifier
+    - instantiate decision tree classifier
 
 - intent: train_decision_tree_classifier
   examples: |
-    - instantiate decision tree
-    - instantiate decision tree classifier
     - train decision tree
     - train decision tree classifier
     - train the decision tree classifier
@@ -112,28 +124,15 @@ nlu:
 - intent: export_tree_as_text_and_print
   examples: |
     - export iris decision tree
-    - textual format
-    - print results
-    - export_text
-
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - export decision tree
+    - Export decisison tree classifier
+    - Export tree classifier
 
 - intent: goodbye
   examples: |
+    - no thanks
+    - no goodby
+    - no thank you
     - good afternoon
     - cu
     - good by
@@ -145,70 +144,3 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-    - no, thank you
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-
-- intent: debug_sample
-  examples: |
-    - import
-    - foo
-    - bar

@@ -1,12 +1,10 @@
+import os
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
-from rasa_sdk.executor import CollectingDispatcher
 
 import torch
 import yaml
-
-import os
-
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
 from scads_cai_prototype.beamsearch import BeamSearch
 from scads_cai_prototype.generator.codegenerator import PythonCodeGenerator
 from scads_cai_prototype.grammar.grammargraphloader import GrammarGraphLoader
@@ -23,12 +21,12 @@ class ActionNl2Code(Action):
 
         self.preprocinf = Preprocinf(parsed_nl2code_yaml["preproc"]["vocabsrc-file"])
 
-        model = Transformer.load_from_checkpoint(parsed_nl2code_yaml["model_conf"]["test-model-path"])
+        self.model = Transformer.load_from_checkpoint(parsed_nl2code_yaml["model_conf"]["test-model-path"])
         grammargraph = GrammarGraphLoader(parsed_nl2code_yaml["model_conf"]["grammar-graph-file"]).load_graph()
         codegenerator = PythonCodeGenerator(grammargraph)
 
         self.beamsearch = BeamSearch(
-            model=model,
+            model=self.model,
             grammargraph=grammargraph,
             codegenerator=codegenerator,
             num_beams=parsed_nl2code_yaml["model_conf"]["num-beams"],
@@ -56,7 +54,14 @@ class ActionNl2Code(Action):
         nl_seq = torch.tensor(nl_seq)
         nl_seq = nl_seq.view(-1, 1)
 
-        prediction = self.beamsearch.perform_beam_search(nl_seq, None)
+        if not self.model.withcharemb:
+            char_seqs = None
+        else:
+            char_seqs = self.preprocinf.preproc_char_seq(nl_input)
+            char_seq_pad = self.preprocinf.pad_char_seq(char_seqs, self.model.max_char_seq_len)
+            char_seqs = char_seq_pad.view(-1, 1, self.model.max_char_seq_len)
+
+        prediction = self.beamsearch.perform_beam_search(nl_seq, char_seqs, None)
 
         if prediction:
             _, _, code_snippet = prediction[0]
@@ -91,37 +96,39 @@ class ActionOrganizeKMeansImports(Action):
 
         return []
 
-    class ActionOrganizeDecisionTreeImports(Action):
 
-        def __init__(self):
-            print('action organize decision tree imports')
+class ActionOrganizeDecisionTreeImports(Action):
 
-        def name(self) -> Text:
-            return "action_organize_decision_tree_imports"
+    def __init__(self):
+        print('action organize decision tree imports')
 
-        def run(self, dispatcher: CollectingDispatcher,
-                tracker: Tracker,
-                domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            imports = "from sklearn.datasets import load_iris\n" \
-                      "from sklearn.tree import DecisionTreeClassifier\n" \
-                      "from sklearn.tree import export_text"
+    def name(self) -> Text:
+        return "action_organize_decision_tree_imports"
 
-            dispatcher.utter_message(
-                json_message={"nl_input": "Organize decision tree imports", "code_snippet": imports})
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        imports = "from sklearn.datasets import load_iris\n" \
+                  "from sklearn.tree import DecisionTreeClassifier\n" \
+                  "from sklearn.tree import export_text"
 
-            return []
+        dispatcher.utter_message(
+            json_message={"nl_input": "Organize decision tree imports", "code_snippet": imports})
 
-    class ActionDebug(Action):
+        return []
 
-        def __init__(self):
-            print('action debug')
 
-        def name(self) -> Text:
-            return "action_debug"
-
-        def run(self, dispatcher: CollectingDispatcher,
-                tracker: Tracker,
-                domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-            dispatcher.utter_message(text="Hello World!")
-
-            return []
+# class ActionDebug(Action):
+#
+#     def __init__(self):
+#         print('action debug')
+#
+#     def name(self) -> Text:
+#         return "action_debug"
+#
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#         dispatcher.utter_message(text="Hello World!")
+#
+#         return []

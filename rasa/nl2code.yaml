@@ -1,11 +1,11 @@
 preproc:
-  vocabsrc-file: "/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_vocab_src.model"
+  vocabsrc-file: "/home/kthellmann/Documents/nl2code-datasets/demo/models/usecase-nd_vocab_src.model"
 
 model_conf:
-  test-model-path: "/home/kthellmann/Documents/scads-cai-prototype/lightning_logs/version_0/checkpoints/last.ckpt"
-  grammar-graph-file: "/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_grammargraph.gpickle"
+  test-model-path: "/home/kthellmann/Documents/nl2code-datasets/demo/checkpoints/usecase-treeenc-epochs1000-ff2048-enc6-dec6-heads16-dim512-lr0.0001-copy5-train/last.ckpt"
+  grammar-graph-file: "/home/kthellmann/Documents/nl2code-datasets/demo/models/usecase-nd_grammargraph.gpickle"
   num-beams: 5
-  max-beam-length: 50
+  max-beam-length: 250
   max-num-predicted-results: 1
   beam-search-mode: "full"
   disable-constraint-mask: True

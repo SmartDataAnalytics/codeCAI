@@ -30,9 +30,9 @@ policies:
 # # If you'd like to customize them, uncomment and adjust the policies.
 # # See https://rasa.com/docs/rasa/policies for more information.
    - name: MemoizationPolicy
-     max_history: 10
-     epochs: 100
+     max_history: 40
+     epochs: 800
    - name: TEDPolicy
-     max_history: 10
-     epochs: 100
-   - name: RulePolicy
+     max_history: 40
+     epochs: 600
+#  - name: RulePolicy

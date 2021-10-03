@@ -2,53 +2,46 @@ version: "2.0"
 
 stories:
 
-- story: kmeans clustering
+- story: greet
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_what_task_should_we_perform
+  - intent: ml_methods
+  - action: utter_ml_methods
+
+- story: kmeans
+  steps:
   - intent: kmeans_clustering
   - action: action_organize_kmeans_imports
-  - action: utter_lets_create_a_sample_dataset
+  - intent: input_kmeans
+  - action: utter_input_kmeans
   - intent: create_sample_data
   - action: action_nl2code
-  - action: utter_instantiate_and_train_kmeans_model
-  - intent: train_kmeans_model
+  - intent: initialize_kmeans
   - action: action_nl2code
-  - action: utter_predict_clusters
-  - intent: predict_clusters
+  - intent: fit_kmeans
   - action: action_nl2code
-  - action: utter_compare_orig_data_with_model_clustering
-  - intent: compare_clusters_orig_model
-  - action: action_nl2code
+  - intent: predict_plot_clusters
   - action: utter_anything_else
-  - intent: deny
-  - action: utter_goodbye
-
-- story: decision tree classifier
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_what_task_should_we_perform
-  - intent: decision_tree
-  - action: action_organize_decision_tree_imports
-  - action: utter_load_iris_dataset
-  - intent: load_iris_data
-  - action: action_nl2code
-  - action: utter_instantiate_and_train_decision_tree_classifier
-  - intent: train_decision_tree_classifier
-  - action: action_nl2code
-  - action: utter_export_tree_as_text_and_print
-  - intent: export_tree_as_text_and_print
   - action: action_nl2code
   - intent: goodbye
   - action: utter_goodbye
 
-- story: debug sample
+- story: decision tree
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: debug_sample
+  - intent: decision_tree
+  - action: action_organize_decision_tree_imports
+  - intent: example_dataset
+  - action: utter_example_dataset
+  - intent: load_iris_data
+  - action: action_nl2code
+  - intent: decision_tree_params
+  - action: utter_decision_tree_params
+  - intent: instantiate_decision_tree_classifier
+  - action: action_nl2code
+  - intent: train_decision_tree_classifier
+  - action: action_nl2code
+  - intent: export_tree_as_text_and_print
   - action: action_nl2code
   - intent: goodbye
   - action: utter_goodbye
