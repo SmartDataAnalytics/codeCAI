@@ -147,9 +147,12 @@ class NL2CodePanel extends Panel {
   }
 
   insertCommentCodeCell(notebook: Notebook, comment?: string, code?: string) {
-    NotebookActions.insertBelow(notebook);
-    const activeCell = this.notebookTracker.activeCell;
-    if (activeCell instanceof CodeCell) {
+    const initiallyActiveCell = this.notebookTracker.activeCell;
+    if (!(initiallyActiveCell instanceof CodeCell && initiallyActiveCell.model.value.text.trim() == "")) {
+      NotebookActions.insertBelow(notebook);
+    }
+    const insertCell = this.notebookTracker.activeCell;
+    if (insertCell instanceof CodeCell) {
       let text = '';
       if (typeof comment !== 'undefined' && comment != null) {
         text += `# ${comment}\n`;
@@ -158,7 +161,7 @@ class NL2CodePanel extends Panel {
         text += code;
       }
 
-      activeCell.model.value.text = text;
+      insertCell.model.value.text = text;
     }
   }
 
