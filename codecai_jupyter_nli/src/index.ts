@@ -191,7 +191,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   ) => {
     console.log('JupyterLab extension codecai_jupyter_nli is activated!');
 
-    const rasaRestEndpoint = 'http://localhost:5005';
+    const rasaRestEndpoint = `http://${window.location.hostname}:5005`;
 
     const chatTab = new NL2CodePanel(notebookTracker, rasaRestEndpoint);
 
