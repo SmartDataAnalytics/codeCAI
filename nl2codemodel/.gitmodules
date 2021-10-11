@@ -1,0 +1,6 @@
+[submodule "tranX"]
+	path = tranX
+	url = https://github.com/pcyin/tranX.git
+[submodule "conala-baseline"]
+	path = conala-baseline
+	url = https://github.com/conala-corpus/conala-baseline.git

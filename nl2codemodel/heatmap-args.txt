@@ -1,0 +1,3 @@
+--self-attention-weights-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/self-attention-weights_m.jsonl
+--cross-attention-weights-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/cross-attention-weights_m.jsonl
+--nl-ast-seq-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/nl_ast_seqs_m.jsonl

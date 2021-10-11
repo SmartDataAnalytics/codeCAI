@@ -1,0 +1,17 @@
+name: python_env_3.7.4_scads-cai-prototype
+channels:
+  - pytorch
+  - conda-forge
+  - anaconda
+dependencies:
+  - astor==0.8.1
+  - cudatoolkit=11.1.1
+  - python==3.7.4
+  - networkx==2.5
+  - pandas==1.1.3
+  - pip
+  - pytorch==1.9.0
+  - pytorch-lightning=1.3.8
+  - sentencepiece==0.1.95
+  - babel==2.9.0
+  - records==0.5.3

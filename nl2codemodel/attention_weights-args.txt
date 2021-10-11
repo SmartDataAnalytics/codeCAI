@@ -1,0 +1,11 @@
+--nl-input="Import foo as bar"
+--attention-weights-mode=bymodel
+--test-model-path=/home/kthellmann/Documents/scads-cai-prototype/lightning_logs/version_0/checkpoints/last.ckpt
+--grammar-graph-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_grammargraph.gpickle
+--vocabsrc-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_vocab_src.model
+--num-beams=10
+--max-beam-length=50
+--max-num-predicted-results=5
+--self-attention-weights-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/self-attention-weights_m.jsonl
+--cross-attention-weights-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/cross-attention-weights_m.jsonl
+--nl-ast-seq-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/out/nl_ast_seqs_m.jsonl
