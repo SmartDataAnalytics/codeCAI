@@ -16,6 +16,7 @@ intents:
   - instantiate_decision_tree_classifier
   - train_decision_tree_classifier
   - export_tree_as_text_and_print
+  - out_of_scope
   - goodbye
 
 actions:
@@ -25,16 +26,16 @@ actions:
 
 responses:
   utter_greet:
-  - text: "Hey! How can I help you?"
+    - text: "Hey! How can I help you?"
 
   utter_ml_methods:
-  - text: "You can choose btw. K-Means clustering and Decision Tree classification. :)"
+    - text: "You can choose btw. K-Means clustering and Decision Tree classification. :)"
 
   utter_input_kmeans:
-  - text: "For the K-Means clustering we need a dataset of shape (n_samples, n_features) and the number of clusters."
+    - text: "For the K-Means clustering we need a dataset of shape (n_samples, n_features) and the number of clusters."
 
   utter_anything_else:
-  - text: "Is there anything else for the clustering?"
+    - text: "Is there anything else for the clustering?"
 
   utter_example_dataset:
     - text: "Yes, I can provide the iris dataset."
@@ -43,7 +44,16 @@ responses:
     - text: "Mainly the data and the labels. But you could also specify the max_depth..."
 
   utter_goodbye:
-  - text: "Bye then :)"
+    - text: "Bye then :)"
+
+  utter_please_rephrase:
+    - text: "Sorry I didn't get that. I'm only trained for performing k-means clustering and decision tree classification. Can you rephrase?"
+
+  utter_default:
+    - text: "Sorry, I didn't understand you. I'm only trained for performing k-means clustering and decision tree classification. Please try again."
+
+  utter_out_of_scope:
+    - text: "Sorry, I can't handle that request. I'm only trained for performing k-means clustering and decision tree classification."
 
 session_config:
   session_expiration_time: 60

@@ -16,6 +16,9 @@ nlu:
     - ml methods
     - methods for machine learning
     - methods for ml
+    - Hmm.. Which machine learning methods do you know?
+    - Which ML methods are available?
+    - What machine learning methods do you support?
 
 - intent: kmeans_clustering
   examples: |
@@ -35,6 +38,7 @@ nlu:
     - input K-means
     - input configuration
     - input for clustering
+    - What input do I need for K-Means?
 
 - intent: create_sample_data
   examples: |
@@ -87,6 +91,8 @@ nlu:
     - decision tree
     - decision tree classifier
     - decision tree classificator
+    - decision tree classification
+    - I would like to perform decision tree classification
     - classification task
 
 - intent: example_dataset
@@ -108,17 +114,20 @@ nlu:
     - parameters for decision tree
     - parameters to create decision tree
     - parameters to initialize a decision tree
+    - Do I need any other parameters for a decision tree?
 
 - intent: instantiate_decision_tree_classifier
   examples: |
     - instantiate decision tree
     - instantiate classifier
     - instantiate decision tree classifier
+    - instantiate decision tree classifier. set max_depth to 123.
+    - instantiate decision tree classifier with max_depth of 123.
 
 - intent: train_decision_tree_classifier
   examples: |
-    - train decision tree
-    - train decision tree classifier
+    - Train decision tree
+    - Train decision tree classifier
     - train the decision tree classifier
 
 - intent: export_tree_as_text_and_print
@@ -130,17 +139,13 @@ nlu:
 
 - intent: goodbye
   examples: |
-    - no thanks
-    - no goodby
-    - no thank you
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
     - bye
     - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - That's it. Bye
+    - No
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?

@@ -24,6 +24,7 @@ class ActionNl2Code(Action):
 
         system = load_checkpoint(parsed_nl2code_yaml["model_conf"]["test-model-path"], {})
         self.model = system.model
+        self.model.eval()
         grammargraph = GrammarGraphLoader(parsed_nl2code_yaml["model_conf"]["grammar-graph-file"]).load_graph()
         codegenerator = PythonCodeGenerator(grammargraph)
 

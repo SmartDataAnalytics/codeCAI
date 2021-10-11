@@ -1,0 +1,13 @@
+name: scads-cai-demonstrator-rasa
+channels:
+  - defaults
+dependencies:
+  - python>=3.8.0,<3.9.0
+  - pip
+  - pip:
+      - torch==1.9.1
+      - pytorch-lightning==1.3.8
+      - rasa==2.2.8
+      - rasa-sdk==2.2.0
+      - sentencepiece=0.1.95
+      - scads_cai_prototype-0.2.0-py2.py3-none-any.whl
