@@ -1,0 +1,8 @@
+--nl-input="Import foo as bar"
+--test-model-path=/home/kthellmann/Documents/scads-cai-prototype/lightning_logs/version_0/checkpoints/last.ckpt
+--vocabsrc-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_vocab_src_char.model
+--vocabchar-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_vocab_char_char.model
+--grammar-graph-file=/home/kthellmann/Documents/nl2code-datasets/debug-sample/debug_grammargraph_char.gpickle
+--num-beams=10
+--max-beam-length=50
+--max-num-predicted-results=3

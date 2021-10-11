@@ -1,0 +1,2 @@
+--target-input-file=/home/ubuntu/Documents/nl2code-datasets/sample/sample_target.jsonl
+--eval-output-file=/home/ubuntu/Documents/nl2code-datasets/sample/sample_evalres.json

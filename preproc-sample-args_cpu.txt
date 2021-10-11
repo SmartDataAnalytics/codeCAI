@@ -1,0 +1,15 @@
+--train-valid-data-path=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase.jsonl
+--test-data-path=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase.jsonl
+--preproc-train-valid-data-output-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd-preproc.jsonl
+--preproc-test-data-output-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd-test-preproc.jsonl
+--preproc-train-valid-data-stats-output-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd-preproc-stats.jsonl
+--vocabsrc-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd_vocab_src.model
+--vocabtgt-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd_tgt.model
+--vocabchar-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd_char.model
+--vocabsrc-size=850
+--vocabsrc-type=bpe
+--eliminate-train-duplicates
+--grammar-graph-file=/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/curated/usecase-nd_grammargraph.gpickle
+--process-train-data=True
+--process-test-data=True
+--all-strliteral-edges=False
