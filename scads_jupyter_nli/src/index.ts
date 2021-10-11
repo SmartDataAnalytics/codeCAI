@@ -146,19 +146,23 @@ class NL2CodePanel extends Panel {
     }
   }
 
-  insertCommentCodeCell(notebook: Notebook, comment?: string, code?: string) {
-    NotebookActions.insertBelow(notebook);
-    const activeCell = this.notebookTracker.activeCell;
-    if (activeCell instanceof CodeCell) {
+  insertCommentCodeCell(notebook: Notebook, nlQuery?: string, code?: string) {
+    const initiallyActiveCell = this.notebookTracker.activeCell;
+    if (!(initiallyActiveCell instanceof CodeCell && initiallyActiveCell.model.value.text.trim() == "")) {
+      NotebookActions.insertBelow(notebook);
+    }
+    const insertCell = this.notebookTracker.activeCell;
+    if (insertCell instanceof CodeCell) {
       let text = '';
-      if (typeof comment !== 'undefined' && comment != null) {
-        text += `# ${comment}\n`;
+      if (typeof nlQuery !== 'undefined' && nlQuery != null) {
+        insertCell.model.metadata.set('scadsNLI_query', nlQuery)
+        text += `# ${nlQuery}\n`;
       }
       if (typeof code !== 'undefined' && code != null) {
         text += code;
       }
 
-      activeCell.model.value.text = text;
+      insertCell.model.value.text = text;
     }
   }
 
