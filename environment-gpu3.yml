@@ -1,4 +1,4 @@
-name: python_env_3.7.4_scads-cai-prototype
+name: nltocode-alpha
 channels:
   - pytorch
   - conda-forge

@@ -1,4 +1,4 @@
-name: scads-cai-prototype-gpu2
+name: nltocode-gpu2
 channels:
   - pytorch
   - conda-forge
