@@ -5,12 +5,12 @@ import torch
 import yaml
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from scads_cai_prototype.beamsearch import BeamSearch
-from scads_cai_prototype.generator.codegenerator import PythonCodeGenerator
-from scads_cai_prototype.grammar.grammargraphloader import GrammarGraphLoader
-from scads_cai_prototype.nl2code import load_checkpoint
-from scads_cai_prototype.preprocessing.preprocinf import Preprocinf
-from scads_cai_prototype.transformer import Transformer
+from nltocode.beamsearch import BeamSearch
+from nltocode.generator.codegenerator import PythonCodeGenerator
+from nltocode.grammar.grammargraphloader import GrammarGraphLoader
+from nltocode.nl2code import load_checkpoint
+from nltocode.preprocessing.preprocinf import Preprocinf
+from nltocode.transformer import Transformer
 
 
 class ActionNl2Code(Action):

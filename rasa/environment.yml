@@ -1,4 +1,4 @@
-name: scads-cai-demonstrator-rasa
+name: codecai-rasa
 channels:
   - defaults
 dependencies:
@@ -10,4 +10,3 @@ dependencies:
       - rasa==2.2.8
       - rasa-sdk==2.2.0
       - sentencepiece=0.1.95
-      - scads_cai_prototype-0.2.0-py2.py3-none-any.whl
