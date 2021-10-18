@@ -1,4 +1,4 @@
-name: scads-cai-protoype
+name: nltocode-cpu
 channels:
   - pytorch
   - conda-forge
