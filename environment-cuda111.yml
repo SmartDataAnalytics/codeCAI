@@ -1,4 +1,4 @@
-name: nltocode-cpu
+name: nltocode-cuda111
 channels:
   - pytorch
   - conda-forge
@@ -13,7 +13,7 @@ dependencies:
   - pytorch==1.9.0
   - pytorch-lightning=1.3.8
   - sentencepiece==0.1.95
-  - cpuonly # replace with 'cudatoolkit=CUDA_VERSION' for GPU support
+  - cudatoolkit=11.1.1
   - babel==2.9.0
   - records==0.5.3
   - pip:

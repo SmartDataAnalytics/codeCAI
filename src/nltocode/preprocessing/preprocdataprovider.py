@@ -4,7 +4,6 @@ import os
 
 import pandas as pd
 
-from asdl.lang.lambda_dcs.logical_form import parse_lambda_expr, logical_form_to_ast
 from nltocode.grammar.grammargraph import PythonASTSequenceCreator, AsdlASTSequenceCreator
 
 
@@ -155,6 +154,7 @@ def get_canonical_order_of_logical_form_lambda_dcs(lf):
 
 
 def ast_parse_lambda_dcs(grammar, reorder_predicates, snippet):
+    from asdl.lang.lambda_dcs.logical_form import parse_lambda_expr, logical_form_to_ast
     lf = parse_lambda_expr(snippet)
     assert lf.to_string() == snippet
     if reorder_predicates:

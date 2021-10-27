@@ -8,12 +8,13 @@
 *.orig
 *.log
 *.pot
-__pycache__/*
-.cache/*
+__pycache__
+.cache
 .*.swp
-*/.ipynb_checkpoints/*
+*/.ipynb_checkpoints
 .DS_Store
 *.*#
+.mypy_cache/
 
 # Project files
 .ropeproject
@@ -30,7 +31,7 @@ tags
 *.egg-info
 
 # Unittest and coverage
-htmlcov/*
+htmlcov
 .coverage
 .tox
 junit.xml
@@ -38,21 +39,18 @@ coverage.xml
 .pytest_cache/
 
 # Build and docs folder/files
-build/*
-dist/*
-sdist/*
-docs/api/*
-docs/_rst/*
-docs/_build/*
-cover/*
-MANIFEST
+build
+dist
+sdist
 
 # Per-project virtualenvs
 .venv*/
 
 lightning_logs/
-work/
 data/
+work/
 
 *.gpickle
 *.model
+
+tranX/

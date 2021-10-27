@@ -10,7 +10,6 @@ import traceback
 import astor
 import pandas as pd
 
-from asdl.asdl import ASDLGrammar
 from nltocode.generator.codegenerator import PythonCodeGenerator
 from nltocode.grammar.grammargraph import PythonGrammarGraphCreator, AsdlGrammarGraphCreator
 from nltocode.grammar.grammargraphloader import GrammarGraphLoader
@@ -420,6 +419,7 @@ def main():
         train_valid_dataprovider = PreprocTrainPythonDataProvider(args.train_valid_data_path)
         test_dataprovider = PreprocTestPythonDataProvider(args.test_data_path)
     elif args.language == 'lambdadcs':
+        from asdl.asdl import ASDLGrammar
         lambdadcsgrammar = ASDLGrammar.from_text(open(args.lambdadcs_grammar_file).read())
         reorder_predicates = (args.reorder == 'atis')
         train_valid_dataprovider = PreprocTrainLambdaDCSDataProvider(args.train_valid_data_path,
