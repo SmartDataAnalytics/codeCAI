@@ -1,5 +1,5 @@
 """
-scads_jupyter_nli setup
+codecai_jupyter_nli setup
 """
 import json
 from pathlib import Path
@@ -16,7 +16,7 @@ import setuptools
 HERE = Path(__file__).parent.resolve()
 
 # The name of the project
-name = "scads_jupyter_nli"
+name = "codecai_jupyter_nli"
 
 lab_path = (HERE / name / "labextension")
 
@@ -29,7 +29,7 @@ package_data_spec = {
     name: ["*"],
 }
 
-labext_name = "scads_jupyter_nli"
+labext_name = "codecai_jupyter_nli"
 
 data_files_spec = [
     ("share/jupyter/labextensions/%s" % labext_name, str(lab_path), "**"),

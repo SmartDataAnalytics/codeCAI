@@ -52,5 +52,5 @@ jobs:
         jlpm run eslint:check
         python -m pip install .
 
-        jupyter labextension list 2>&1 | grep -ie "scads_jupyter_nli.*OK"
+        jupyter labextension list 2>&1 | grep -ie "codecai_jupyter_nli.*OK"
         python -m jupyterlab.browser_check

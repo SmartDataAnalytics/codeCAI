@@ -1,4 +1,4 @@
-name: scads_jupyter_nli
+name: codecai_jupyter_nli
 channels:
   - conda-forge
   - defaults

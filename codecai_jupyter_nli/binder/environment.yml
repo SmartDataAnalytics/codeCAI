@@ -1,10 +1,10 @@
-# a mybinder.org-ready environment for demoing scads_jupyter_nli
+# a mybinder.org-ready environment for demoing codecai_jupyter_nli
 # this environment may also be used locally on Linux/MacOS/Windows, e.g.
 #
 #   conda env update --file binder/environment.yml
-#   conda activate scads_jupyter_nli-demo
+#   conda activate codecai_jupyter_nli-demo
 #
-name: scads_jupyter_nli-demo
+name: codecai_jupyter_nli-demo
 
 channels:
   - conda-forge

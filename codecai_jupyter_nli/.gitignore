@@ -4,7 +4,7 @@ node_modules/
 *.egg-info/
 .ipynb_checkpoints
 *.tsbuildinfo
-scads_jupyter_nli/labextension
+codecai_jupyter_nli/labextension
 
 # Created by https://www.gitignore.io/api/python
 # Edit at https://www.gitignore.io/?templates=python

@@ -32,8 +32,8 @@ class NL2CodePanel extends Panel {
   constructor(
     notebookTracker: INotebookTracker,
     rasaRestEndpoint: string,
-    id = 'scads-nli-panel',
-    label = 'ScaDS NLI',
+    id = 'codecai-nli-panel',
+    label = 'CodeCAI NLI',
     options: Panel.IOptions = {}
   ) {
     super(options);
@@ -42,10 +42,10 @@ class NL2CodePanel extends Panel {
     this.title.label = label;
     this.title.closable = true;
 
-    this.addClass('scads-nli-panel')
+    this.addClass('codecai-nli-panel')
 
     this.chatHistory = document.createElement('div')
-    this.chatHistory.classList.add('scads-nli-chat-history')
+    this.chatHistory.classList.add('codecai-nli-chat-history')
     let chatHistoryWidget = new Widget({ node: this.chatHistory })
     this.addWidget(chatHistoryWidget);
 
@@ -70,14 +70,14 @@ class NL2CodePanel extends Panel {
     inputField.cols = 50;
     inputField.rows = 3;
 
-    inputField.classList.add('scads-nli-message-input');
+    inputField.classList.add('codecai-nli-message-input');
     return inputField;
   }
 
   createSend(): HTMLInputElement {
     const sendButton: HTMLInputElement = document.createElement('input');
     sendButton.type = 'button';
-    sendButton.classList.add('scads-nli-send-button');
+    sendButton.classList.add('codecai-nli-send-button');
     sendButton.value = 'Send';
     sendButton.onclick = this.sendButtonClicked;
     return sendButton;
@@ -85,8 +85,8 @@ class NL2CodePanel extends Panel {
 
   logChatMessage = (sender: string, message: string, direction: 'in' | 'out') => {
     let chatMessage = document.createElement('p')
-    chatMessage.classList.add('scads-nli-chat-message')
-    chatMessage.classList.add(`scads-nli-chat-message-${direction}`)
+    chatMessage.classList.add('codecai-nli-chat-message')
+    chatMessage.classList.add(`codecai-nli-chat-message-${direction}`)
     chatMessage.textContent = sender + ": " + message;
     this.chatHistory.insertBefore(chatMessage, this.chatHistory.children[0])
   }
@@ -155,7 +155,7 @@ class NL2CodePanel extends Panel {
     if (insertCell instanceof CodeCell) {
       let text = '';
       if (typeof nlQuery !== 'undefined' && nlQuery != null) {
-        insertCell.model.metadata.set('scadsNLI_query', nlQuery)
+        insertCell.model.metadata.set('codecaiNLI_query', nlQuery)
         text += `# ${nlQuery}\n`;
       }
       if (typeof code !== 'undefined' && code != null) {
@@ -178,10 +178,10 @@ class NL2CodePanel extends Panel {
 }
 
 /**
- * Initialization data for the scads_jupyter_nli extension.
+ * Initialization data for the codecai_jupyter_nli extension.
  */
 const extension: JupyterFrontEndPlugin<void> = {
-  id: 'scads_jupyter_nli:plugin',
+  id: 'codecai_jupyter_nli:plugin',
   autoStart: true,
   requires: [ICommandPalette, INotebookTracker],
   activate: (
@@ -189,7 +189,7 @@ const extension: JupyterFrontEndPlugin<void> = {
     palette: ICommandPalette,
     notebookTracker: INotebookTracker
   ) => {
-    console.log('JupyterLab extension scads_jupyter_nli is activated!');
+    console.log('JupyterLab extension codecai_jupyter_nli is activated!');
 
     const rasaRestEndpoint = 'http://localhost:5005';
 
@@ -197,7 +197,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     const command = 'sjn:open';
     app.commands.addCommand(command, {
-      label: 'Show ScaDS NLI',
+      label: 'Show CodeCAI NLI',
       execute: () => {
         if (!chatTab.isAttached) {
           app.shell.add(chatTab, 'right');

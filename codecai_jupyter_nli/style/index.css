@@ -1,12 +1,12 @@
 @import url('base.css');
 
-.scads-nli-panel {
+.codecai-nli-panel {
     background: var(--jp-layout-color3);
     display: flex;
     flex-direction: column;
 }
 
-.scads-nli-chat-history {
+.codecai-nli-chat-history {
     display: flex;
     flex-direction: column-reverse;
 	flex-grow: 1;
@@ -14,18 +14,18 @@
     overflow-y: auto;
 }
 
-.scads-nli-message-input {
+.codecai-nli-message-input {
 	overflow: auto;
 	resize: vertical;
 }
 
-.scads-nli-send-button {
+.codecai-nli-send-button {
 	align-items: flex-end;
 	border-radius: 0.5ex;
 	padding: 0.5ex 0.5ex 0.25ex 0.5ex;
 }
 
-.scads-nli-chat-message {
+.codecai-nli-chat-message {
 	background-color: var(--jp-layout-color1);
 	border-radius: 0.5ex;
 	margin: 0.5ex;
@@ -33,9 +33,9 @@
 	padding: 0.5ex 0.5ex 0ex 0.5ex;
 }
 
-.scads-nli-chat-message-out {
+.codecai-nli-chat-message-out {
     align-self: flex-begin;
 }
-.scads-nli-chat-message-in {
+.codecai-nli-chat-message-in {
     align-self: flex-end;
 }

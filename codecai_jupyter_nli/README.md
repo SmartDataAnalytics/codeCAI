@@ -1,6 +1,6 @@
-# scads_jupyter_nli
+# codecai_jupyter_nli
 
-![Github Actions Status](https://github.com/KlaudiaTH/scads-cai-demonstrator/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/KlaudiaTH/scads-cai-demonstrator/main?urlpath=lab)
+![Github Actions Status](https://github.com/KlaudiaTH/codecai-cai-demonstrator/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/KlaudiaTH/codecai-cai-demonstrator/main?urlpath=lab)
 
 A natural-language interface (NLI) for JupyterLab
 
@@ -13,7 +13,7 @@ A natural-language interface (NLI) for JupyterLab
 ## Install
 
 ```bash
-pip install scads_jupyter_nli
+pip install codecai_jupyter_nli
 ```
 
 
@@ -29,7 +29,7 @@ The `jlpm` command is JupyterLab's pinned version of
 
 ```bash
 # Clone the repo to your local environment
-# Change directory to the scads_jupyter_nli directory
+# Change directory to the codecai_jupyter_nli directory
 # Install package in development mode
 pip install -e .
 # Link your development version of the extension with JupyterLab
@@ -58,5 +58,5 @@ jupyter lab build --minimize=False
 ### Uninstall
 
 ```bash
-pip uninstall scads_jupyter_nli
+pip uninstall codecai_jupyter_nli
 ```

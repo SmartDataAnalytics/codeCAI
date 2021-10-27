@@ -1,6 +1,6 @@
-1. Installation Jupyter Plugin in codeCAI/scads_jupyter_nli:
+1. Installation Jupyter Plugin in codeCAI/codecai_jupyter_nli:
 - conda env create -f environment.yml
-- conda activate scads_jupyter_nli
+- conda activate codecai_jupyter_nli
 - pip install -e .
 - jupyter labextension develop . --overwrite
 - jlpm run build
