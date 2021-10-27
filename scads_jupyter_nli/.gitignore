@@ -111,5 +111,8 @@ dmypy.json
 # OSX files
 .DS_Store
 
+# VS Code
+.vscode
+
 
 /temp
