@@ -1,4 +1,8 @@
-1. Installation Jupyter Plugin in codeCAI/codecai_jupyter_nli:
+**Prerequisites**
+- Python 3.7 (Conda 4.9)
+- RASA 2.2
+
+**Installing the codeCAI Jupyter Plugin**
 - conda env create -f environment.yml
 - conda activate codecai_jupyter_nli
 - pip install -e .
@@ -7,9 +11,14 @@
 - (or jlpm run watch)
 - jupyter lab
 
-2. Installation RASA-Backend in codeCAI/rasa
-- source ~/pyenv3.8.5_rasa/bin/activate
+**Installing RASA-Backend**
+-  python3 -m virtualenv pyenv_rasa
+   (if virtualenv is not installed: pip install --user virtualenv)
+- source ~/pyenv_rasa/bin/activate
+- pip3 install rasa 
+- pip3 install rasa_core_sdk
+- cd codeCAI/rasa
 - pip install -e ../nl2codemodel/
-- rasa run --enable-api --debug -m models/20211007-081137.tar.gz --cors ["localhost:8888"]
-- export NL2CODE_CONF=/home/kthellmann/codeCAI/rasa/nl2code.yaml
+- rasa run --enable-api --debug -m models/***.tar.gz --cors ["localhost:8888"]
+- export NL2CODE_CONF=/path/to/nl2code.yaml
 - rasa run actions -vv
