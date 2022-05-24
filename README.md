@@ -13,9 +13,6 @@
       <a href="#about-codecai">About codeCAI</a>
     </li>
     <li>
-      <a href="#further-material">Further Material</a>
-    </li>
-    <li>
       <a href="#installation">Installation</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
@@ -33,6 +30,9 @@
            <a href="#codecai-rasa-backend">codeCAI Rasa Backend</a>
          </li>
       </ul>
+    </li>
+    <li>
+      <a href="#further-material">Further Material</a>
     </li>
     <li>
       <a href="#license">License</a>
@@ -60,19 +60,6 @@ Experimental results show that on one benchmark the tree encoding performs bette
 To test whether the tree-encoded Transformer learns to predict the AST structure correctly, we looked at the exact match accuracy and token- and sequence-level precision and recall. The takeaway from the analysis of correctly predicted prefixes is that string literals have a significant impact on the quality of the prediction and that longer sequences are more difficult to predict. We also found that tree encoding gives an improvement of up to 3.0% when excluding string literals over sequential encoding.
 
 <video src="https://user-images.githubusercontent.com/2452384/169987182-51bb52bc-9d56-4eac-9f90-2567252b1fc3.mp4" controls="controls"></video>
-
-## Further Material
-1. In the ScaDS.AI Living Lab lecture, we presented an overview of state-of-the-art language models for program synthesis, introduced some basic characteristics of these models, and discussed several of their limitations. 
-One possible direction of research that could help alleviate these limitations is the inclusion of structural knowledge - an attempt we have made in this regard and which we briefly introduced:
-
-<p align="center">
-<a href="https://www.youtube.com/watch?v=mto9XS1Bf1c"><img src="https://user-images.githubusercontent.com/5738212/170039371-f3f2d87d-eef5-4da2-8be4-f5750c98674b.png" alt="Language Models for Code Generation - ScaDS.AI Living Lab Lecture" style="width:538px;height:303px;"></a>
-</p>
-
-2. [codeCAI Poster - Generating Code from Natural Language](https://github.com/SmartDataAnalytics/codeCAI/files/8762855/19_Poster_Generating_Code_from_Natural_Language.pdf)
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Installation
 
@@ -148,6 +135,19 @@ rasa run --enable-api --debug -m models/***.tar.gz --cors ["localhost:8888"]
 export NL2CODE_CONF=/path/to/nl2code.yaml
 rasa run actions -vv
 ```
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Further Material
+1. In the ScaDS.AI Living Lab lecture, we presented an overview of state-of-the-art language models for program synthesis, introduced some basic characteristics of these models, and discussed several of their limitations. 
+One possible direction of research that could help alleviate these limitations is the inclusion of structural knowledge - an attempt we have made in this regard and which we briefly introduced:
+
+<p align="center">
+<a href="https://www.youtube.com/watch?v=mto9XS1Bf1c"><img src="https://user-images.githubusercontent.com/5738212/170039371-f3f2d87d-eef5-4da2-8be4-f5750c98674b.png" alt="Language Models for Code Generation - ScaDS.AI Living Lab Lecture" style="width:538px;height:303px;"></a>
+</p>
+
+2. [codeCAI Poster - Generating Code from Natural Language](https://github.com/SmartDataAnalytics/codeCAI/files/8762855/19_Poster_Generating_Code_from_Natural_Language.pdf)
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## License
