@@ -33,7 +33,7 @@ class NL2CodePanel extends Panel {
     notebookTracker: INotebookTracker,
     rasaRestEndpoint: string,
     id = 'codecai-nli-panel',
-    label = 'CodeCAI NLI',
+    label = 'codeCAI NLI',
     options: Panel.IOptions = {}
   ) {
     super(options);
@@ -197,7 +197,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     const command = 'sjn:open';
     app.commands.addCommand(command, {
-      label: 'Show CodeCAI NLI',
+      label: 'Show codeCAI NLI',
       execute: () => {
         if (!chatTab.isAttached) {
           app.shell.add(chatTab, 'right');
