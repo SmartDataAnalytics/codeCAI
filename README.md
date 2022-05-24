@@ -1,6 +1,10 @@
 <div id="top"/>
+<h1 align="center">codeCAI - Generating Code from Natural Language </h1>
 
-## codeCAI - Generating Code from Natural Language 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/5738212/170006685-b5275e1c-d857-4f16-aead-47e506cc5176.png" alt="codeCAI" width="600"></img>
+</div>
+
 
 <details>
   <summary>Table of Contents</summary>
@@ -36,10 +40,18 @@ The approach we used to realize an assistant capable of interpreting analytical 
 
 We have implemented a RASA-based dialogue system, which we have integrated into the JupyterLab environment. Using this natural-language interface, data analyses can be specified at a high abstraction level, which are then automatically mapped to executable program instructions that are generated in a Jupyter Notebook
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/2452384/169987155-1f5d3f52-dbba-4ff8-ae17-173930704919.png" alt="Implementation overview" width="885"></img>
+</div>
+
 We performed the evaluation on two tasks, namely semantic parsing and code generation using the ZIH HPC cluster. In both cases, the goal is to generate formal meaning representations from natural language input, that is, lambda-calculus expressions or Python code.
 
 Experimental results show that on one benchmark the tree encoding performs better than the sequential encoding used by the original Transformer architecture.
 To test whether the tree-encoded Transformer learns to predict the AST structure correctly, we looked at the exact match accuracy and token- and sequence-level precision and recall. The takeaway from the analysis of correctly predicted prefixes is that string literals have a significant impact on the quality of the prediction and that longer sequences are more difficult to predict. We also found that tree encoding gives an improvement of up to 3.0% when excluding string literals over sequential encoding.
+
+<video src="https://user-images.githubusercontent.com/2452384/169987182-51bb52bc-9d56-4eac-9f90-2567252b1fc3.mp4" controls="controls"></video>
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
