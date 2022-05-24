@@ -1,9 +1,9 @@
 preproc:
-  vocabsrc-file: "/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/model/vocabsrc_usecase.model"
+  vocabsrc-file: "../../nl2code-datasets/conala-corpus-v1.1/model/vocabsrc_usecase.model"
 
 model_conf:
-  test-model-path: "/home/kthellmann/Documents/nl2code-datasets/demo/checkpoints/usecase-sharedstrlitvocab-v2-treeenc-epochs1000-ff2048-maxdepth32-enc6-dec6-heads16-dim512-lr0.0001-copy5-attdropout-train/lightning_logs/version_10885810/checkpoints/last.ckpt"
-  grammar-graph-file: "/home/kthellmann/Documents/nl2code-datasets/conala-corpus-v1.1/model/grammargraph_usecase.gpickle"
+  test-model-path: "../../nl2code-datasets/demo/checkpoints/usecase-sharedstrlitvocab-v2-treeenc-epochs1000-ff2048-maxdepth32-enc6-dec6-heads16-dim512-lr0.0001-copy5-attdropout-train/lightning_logs/version_10885810/checkpoints/last.ckpt"
+  grammar-graph-file: "../../nl2code-datasets/conala-corpus-v1.1/model/grammargraph_usecase.gpickle"
   num-beams: 5
   max-beam-length: 250
   max-num-predicted-results: 1

@@ -1,9 +1,9 @@
 preproc:
-  vocabsrc-file: "/home/kthellmann/Documents/nl2code-datasets/demo/models/usecase-nd_vocab_src.model"
+  vocabsrc-file: "../nl2codemodel/models/usecase-nd_vocab_src.model"
 
 model_conf:
-  test-model-path: "/home/kthellmann/Documents/nl2code-datasets/demo/checkpoints/usecase-treeenc-epochs1000-ff2048-enc6-dec6-heads16-dim512-lr0.0001-copy5-train/last.ckpt"
-  grammar-graph-file: "/home/kthellmann/Documents/nl2code-datasets/demo/models/usecase-nd_grammargraph.gpickle"
+  test-model-path: "../nl2codemodel/models/last.ckpt"
+  grammar-graph-file: "../nl2codemodel/models/usecase-nd_grammargraph.gpickle"
   num-beams: 5
   max-beam-length: 250
   max-num-predicted-results: 1
