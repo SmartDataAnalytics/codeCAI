@@ -64,12 +64,49 @@ To test whether the tree-encoded Transformer learns to predict the AST structure
 ## Installation
 
 ### Prerequisites
-* Python 3.7 (Conda 4.9)
-* Rasa 2.2
+* Python 3.8 (earlier versions may work as well)
+* Conda
+
+### Rasa Backend
+1. Create and activate Python environment using virtualenv
+```sh
+python3 -m virtualenv ~/pyenv_rasa
+```
+(if virtualenv is not installed: `pip install --user virtualenv`)
+```sh
+source ~/pyenv_rasa/bin/activate
+```
+2. Install Rasa
+<!-- Rasa 2.2.10 without fixed Tensorflow version causes numpy version conflicts when installing nl2codemodel -->
+```sh
+pip3 install rasa==2.2.8 rasa-sdk==2.2.0 tensorflow==2.3.4
+```
+3. Install nl2code model
+```sh
+pip3 install -e nl2codemodel/
+```
+4. Install missing and incorrectly versioned dependencies
+```sh
+pip3 install sentencepiece==0.1.95 torchmetrics==0.5.1
+```
+5. Download Rasa model
+```sh
+mkdir -p rasa/models
+wget -P rasa/models --content-disposition 'https://cloudstore.zih.tu-dresden.de/index.php/s/c3PcAjpPX6AeZaF/download?path=%2F&files=20210726-155823_kmeans.tar.gz'
+```
+
+5. Download NL2Code vocabulary, grammar graph and checkpoint
+```sh
+mkdir -p nl2codemodel/models
+wget -P nl2codemodel/models --content-disposition 'https://cloudstore.zih.tu-dresden.de/index.php/s/c3PcAjpPX6AeZaF/download?path=%2F&files=usecase-nd_vocab_src.model' 'https://cloudstore.zih.tu-dresden.de/index.php/s/c3PcAjpPX6AeZaF/download?path=%2F&files=usecase-nd_grammargraph.gpickle' 'https://cloudstore.zih.tu-dresden.de/index.php/s/c3PcAjpPX6AeZaF/download?path=%2F&files=last.ckpt' 
+```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Jupyter Plugin
 1. Create and activate Python environment using conda
 ```sh
+cd codecai_jupyter_nli
 conda env create -f environment.yml
 conda activate codecai_jupyter_nli
 ```
@@ -77,65 +114,67 @@ conda activate codecai_jupyter_nli
 ```sh
 pip install -e .
 ```
-3. Create a link to the prebuilt output directory
-```sh
-jupyter labextension develop . --overwrite
-```
-4. Build the extension
+
+3. Build the extension
 ```sh
 jlpm run build
-(or jlpm run watch)
 ```
+(or `jlpm run watch` for development, to automatically rebuild on changes)
 
-### Rasa Backend
-1. Create and activate Python environment using virtualenv
-```sh
-python3 -m virtualenv pyenv_rasa
-(if virtualenv is not installed: pip install --user virtualenv)
-source ~/pyenv_rasa/bin/activate
-```
-2. Install Rasa
-```sh
-pip3 install rasa
-pip3 install rasa_core_sdk
-```
-3. Install nl2code model
-```sh
-cd codeCAI/rasa
-pip install -e ../nl2codemodel/
-```
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Usage
-### codeCAI Jupyter Plugin
-1. Activate Python environment using conda
-```sh
-conda activate codecai_jupyter_nli
-```
-2. Run JupyterLab
-```sh
-jupyter lab
-```
-
 ### codeCAI Rasa Backend
 1. Activate Python environment
 ```sh
 source ~/pyenv_rasa/bin/activate
 ```
+
 2. Change to the Rasa project directory 
 ```sh
-cd codeCAI/rasa
+cd rasa
 ```
-3. Run Rasa server
+
+3. Run Rasa server (adjust port 8888 if taken by another application than JupyterLab)
 ```sh
 rasa run --enable-api --debug -m models/***.tar.gz --cors ["localhost:8888"]
 ```
-4. Run Rasa action server
+
+4. Run Rasa action server (in a separate console window, in the `rasa` directory)
 ```sh
-export NL2CODE_CONF=/path/to/nl2code.yaml
+source ~/pyenv_rasa/bin/activate
+cd rasa
+export NL2CODE_CONF=$PWD/nl2code.yaml
 rasa run actions -vv
 ```
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+### codeCAI Jupyter Plugin
+1. Activate Python environment using conda
+```sh
+conda activate codecai_jupyter_nli
+```
+
+2. Change to Jupyter base directory (creating if necessary)
+```sh
+mkdir -p ~/jupyter_root
+cd ~/jupyter_root
+```
+
+3. Run JupyterLab
+```sh
+jupyter lab
+```
+
+4. Open dialog assistant
+   * Open (or create) a Jupyter notebook
+   * Press __Ctrl+Shift+C__ to open the Command Palette 
+
+     (or select View → Activate Command Palette)
+   * Type "__nli__"
+   * Select "__Show codeCAI NLI__"
+5. Use dialog assistant
+   * Type an instruction (e.g. "Hi" or "Which ML methods do you know?") in the text field on the bottom of the "codeCAI NLI" side panel on the right.
+   * Press __Return__ or click the "__Send__" button
 
 ## Further Material
 1. In the ScaDS.AI Living Lab lecture, we presented an overview of state-of-the-art language models for program synthesis, introduced some basic characteristics of these models, and discussed several of their limitations. 

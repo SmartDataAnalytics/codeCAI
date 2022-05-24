@@ -1,23 +1,10 @@
 # codecai_jupyter_nli
 
-![Github Actions Status](https://github.com/KlaudiaTH/codecai-cai-demonstrator/workflows/Build/badge.svg)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/KlaudiaTH/codecai-cai-demonstrator/main?urlpath=lab)
-
-A natural-language interface (NLI) for JupyterLab
-
-
+A conversational assistant for generating Python code in JupyterLab
 
 ## Requirements
 
 * JupyterLab >= 3.0
-
-## Install
-
-```bash
-pip install codecai_jupyter_nli
-```
-
-
-## Contributing
 
 ### Development install
 
