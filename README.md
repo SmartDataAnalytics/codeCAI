@@ -13,6 +13,9 @@
       <a href="#about-codecai">About codeCAI</a>
     </li>
     <li>
+      <a href="#further-material">Further Material</a>
+    </li>
+    <li>
       <a href="#installation">Installation</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
@@ -23,17 +26,24 @@
     <li>
        <a href="#usage">Usage</a>
        <ul>
-         <li><a href="#codecai-jupyter-plugin">codeCAI Jupyter Plugin</a></li>
-         <li><a href="#codecai-rasa-backend">codeCAI Rasa Backend</a></li>
+         <li>
+           <a href="#codecai-jupyter-plugin">codeCAI Jupyter Plugin</a>
+         </li>
+         <li>
+           <a href="#codecai-rasa-backend">codeCAI Rasa Backend</a>
+         </li>
       </ul>
     </li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li>
+      <a href="#license">License</a>
+    </li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+    </li>
   </ol>
 </details>
 
 ## About codeCAI
-
 codeCAI is a conversational assistant that enables analysts to specify data analyses using natural language, which are then translated into executable Python code statements.
 
 The approach we used to realize an assistant capable of interpreting analytical instructions, is a Transformer-based language model with an adapted tree encoding scheme and a restrictive grammar model that learns to map natural language specifications to a tree-based representation of the output code. With this syntax-driven approach, we aim to enable the language model to capture hierarchical relationships in syntax trees representing Python code fragments.
@@ -51,6 +61,13 @@ To test whether the tree-encoded Transformer learns to predict the AST structure
 
 <video src="https://user-images.githubusercontent.com/2452384/169987182-51bb52bc-9d56-4eac-9f90-2567252b1fc3.mp4" controls="controls"></video>
 
+## Further Material
+1. In the ScaDS.AI Living Lab lecture, we presented an overview of state-of-the-art language models for program synthesis, introduced some basic characteristics of these models, and discussed several of their limitations. 
+One possible direction of research that could help alleviate these limitations is the inclusion of structural knowledge - an attempt we have made in this regard and which we briefly introduced.
+
+[![Language Models for Code Generation](https://user-images.githubusercontent.com/5738212/170039371-f3f2d87d-eef5-4da2-8be4-f5750c98674b.png)](https://www.youtube.com/watch?v=mto9XS1Bf1c "Language Models for Code Generation - ScaDS.AI Living Lab Lecture")
+
+2. [codeCAI Poster](https://github.com/SmartDataAnalytics/codeCAI/files/8762855/19_Poster_Generating_Code_from_Natural_Language.pdf)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
