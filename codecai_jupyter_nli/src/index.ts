@@ -203,6 +203,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           app.shell.add(chatTab, 'right');
         }
         app.shell.activateById(chatTab.id);
+        chatTab.inputField.focus();
       }
     });
 
