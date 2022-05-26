@@ -1,0 +1,10 @@
+NL Query;NL Response;Code expected;Code generated
+Hi;Hey! How can I help you?;;
+Hmm.. Which machine learning methods do you know?;You can choose btw. K-Means clustering and Decision Tree classification. :);;
+kmeans clustering;;from sklearn.datasets import make_blobs\n import pandas as pd\n import numpy as np\n import  matplotlib.pyplot as plt\n from sklearn.cluster import KMeans\n	;# Organize kmeans imports\n from sklearn.datasets import make_blobs\n import pandas as pd\n import numpy as np\n import matplotlib.pyplot as plt\n from sklearn.cluster import KMeans\n
+What input do I need for K-Means?;For the K-Means clustering we need a dataset of shape (n_samples, n_features) and the number of clusters.;;
+Generate data set with 200 samples and 4 cluster centers;;raw_data = make_blobs(n_samples=200, n_features=2, centers=4, cluster_std=1.8)\n;# Generate data set with 200 samples and 4 cluster center\n data = make_blobs(n_samples=200, n_features=2, centers=4, cluster_std=1.8, random_state=101)\n
+Create an instance of KMeans class;;model = KMeans(n_clusters=4)\n;# Create an instance of KMeans class\n model = KMeans(n_clusters=4)
+Train kmeans model;;model.fit(raw_data[0]); # Train kmeans model\n model.fit(raw_data[0])
+Visualize clusters; Is there anything else for the clustering?;plt.scatter(raw_data[0][:,0], raw_data[0[:,1],c=model.labels_); # Visualize clusters\n plt.scatter(raw_data[0][:, (0)], raw_data[0][:, (1)], c=model.labels_)
+No, that's it. Bye;Bye then :);;

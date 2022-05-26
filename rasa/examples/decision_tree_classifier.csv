@@ -1,0 +1,11 @@
+NL Query;NL Response;Code expected;Code generated
+Hi;Hey! How can I help you?;;
+Hmm.. Which machine learning methods do you know?;You can choose btw. K-Means clustering and Decision Tree classification. :);;
+decision tree classification;;from sklearn.datasets import load_iris\n from sklearn.tree import DecisionTreeClassifier\n from sklearn.tree import export_text\n;# Organize decision tree imports\n from sklearn.datasets import load_iris\n from sklearn.tree import DecisionTreeClassifier\n from sklearn.tree import export_text\n
+Do you have an example dataset for classification?;Yes, I can provide the iris dataset.;;
+Load the iris dataset;;iris = load_iris()\n;# Load the iris dataset\n iris = load_iris()
+Are there other parameters for decision trees?; Mainly the data and the labels. But you could also specify the max_depth...;;
+Instantiate decision tree classifier. Set max_depth to 50.;;decision_tree = DecisionTreeClassifier(random_state=0, max_depth=50)\n;# Instantiate decision tree classifier. Set max_depth to 50.\n decision_tree = DecisionTreeClassifier(random_state=0, max_depth=2)
+Train decision tree;;decision_tree = decision_tree.fit(iris.data, iris.target);# Train decision tree;decision_tree = decision_tree.fit(iris.data, iris.target)
+Export decision tree;;r = export_text(decision_tree, feature_names=iris['feature_names'])\n print(r)\n;# Export decision tree\n r = export_text(decision_tree, feature_names=iris['feature_names'])\n print(r)
+That's it. Bye;Bye then :);;

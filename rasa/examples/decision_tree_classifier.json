@@ -1,0 +1,63 @@
+[
+  {
+    "user_query": "Hi",
+    "bot_response_text": "Hey! How can I help you?",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "Hmm.. Which machine learning methods do you know?",
+    "bot_response_text": "You can choose btw. K-Means clustering and Decision Tree classification. :)",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "decision tree classification",
+    "bot_response_text": "",
+    "bot_response_code_expected": "from sklearn.datasets import load_iris\\n from sklearn.tree import DecisionTreeClassifier\\n from sklearn.tree import export_text\\n",
+    "bot_response_code_generated": "# Organize decision tree imports\\n from sklearn.datasets import load_iris\\n from sklearn.tree import DecisionTreeClassifier\\n from sklearn.tree import export_text\\n"
+  },
+  {
+    "user_query": "Do you have an example dataset for classification?",
+    "bot_response_text": "Yes, I can provide the iris dataset.",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "Load the iris dataset",
+    "bot_response_text": "",
+    "bot_response_code_expected": "iris = load_iris()\\n",
+    "bot_response_code_generated": "# Load the iris dataset\\n iris = load_iris()"
+  },
+  {
+    "user_query": "Are there other parameters for decision trees?",
+    "bot_response_text": "Mainly the data and the labels. But you could also specify the max_depth...",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "Instantiate decision tree classifier. Set max_depth to 50.",
+    "bot_response_text": "",
+    "bot_response_code_expected": "decision_tree = DecisionTreeClassifier(random_state=0, max_depth=50)\\n",
+    "bot_response_code_generated": "# Instantiate decision tree classifier. Set max_depth to 50.\\n decision_tree = DecisionTreeClassifier(random_state=0, max_depth=2)"
+  },
+  {
+    "user_query": "Train decision tree",
+    "bot_response_text": "",
+    "bot_response_code_expected": "decision_tree = decision_tree.fit(iris.data, iris.target)",
+    "bot_response_code_generated": "# Train decision tree",
+    "": "decision_tree = decision_tree.fit(iris.data, iris.target)"
+  },
+  {
+    "user_query": "Export decision tree",
+    "bot_response_text": "",
+    "bot_response_code_expected": "r = export_text(decision_tree, feature_names=iris['feature_names'])\\n print(r)\\n",
+    "bot_response_code_generated": "# Export decision tree\\n r = export_text(decision_tree, feature_names=iris['feature_names'])\\n print(r)"
+  },
+  {
+    "user_query": "That's it. Bye",
+    "bot_response_text": "Bye then :)",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  }
+]

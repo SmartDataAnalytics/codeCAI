@@ -1,0 +1,56 @@
+[
+  {
+    "user_query": "Hi",
+    "bot_response_text": "Hey! How can I help you?",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "Hmm.. Which machine learning methods do you know?",
+    "bot_response_text": "You can choose btw. K-Means clustering and Decision Tree classification. :)",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "kmeans clustering",
+    "bot_response_text": "",
+    "bot_response_code_expected": "from sklearn.datasets import make_blobs\\n import pandas as pd\\n import numpy as np\\n import  matplotlib.pyplot as plt\\n from sklearn.cluster import KMeans\\n",
+    "bot_response_code_generated": "# Organize kmeans imports\\n from sklearn.datasets import make_blobs\\n import pandas as pd\\n import numpy as np\\n import matplotlib.pyplot as plt\\n from sklearn.cluster import KMeans\\n"
+  },
+  {
+    "user_query": "What input do I need for K-Means?",
+    "bot_response_text": "For the K-Means clustering we need a dataset of shape (n_samples, n_features) and the number of clusters.",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  },
+  {
+    "user_query": "Generate data set with 200 samples and 4 cluster centers",
+    "bot_response_text": "",
+    "bot_response_code_expected": "raw_data = make_blobs(n_samples=200, n_features=2, centers=4, cluster_std=1.8)\\n",
+    "bot_response_code_generated": "# Generate data set with 200 samples and 4 cluster center\\n data = make_blobs(n_samples=200, n_features=2, centers=4, cluster_std=1.8, random_state=101)\\n"
+  },
+  {
+    "user_query": "Create an instance of KMeans class",
+    "bot_response_text": "",
+    "bot_response_code_expected": "model = KMeans(n_clusters=4)\\n",
+    "bot_response_code_generated": "# Create an instance of KMeans class\\n model = KMeans(n_clusters=4)"
+  },
+  {
+    "user_query": "Train kmeans model",
+    "bot_response_text": "",
+    "bot_response_code_expected": "model.fit(raw_data[0])",
+    "bot_response_code_generated": "# Train kmeans model\\n model.fit(raw_data[0])"
+  },
+  {
+    "user_query": "Visualize clusters",
+    "bot_response_text": "Is there anything else for the clustering?",
+    "bot_response_code_expected": "plt.scatter(raw_data[0][:,0], raw_data[0[:,1],c=model.labels_)",
+    "bot_response_code_generated": "# Visualize clusters\\n plt.scatter(raw_data[0][:, (0)], raw_data[0][:, (1)], c=model.labels_)"
+  },
+  {
+    "user_query": "No, that's it. Bye",
+    "bot_response_text": "Bye then :)",
+    "bot_response_code_expected": "",
+    "bot_response_code_generated": ""
+  }
+]
