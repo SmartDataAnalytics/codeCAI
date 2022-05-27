@@ -83,7 +83,7 @@ To test whether the tree-encoded Transformer learns to predict the AST structure
 2. Install Rasa
    <!-- Rasa 2.2.10 without fixed Tensorflow version causes numpy version conflicts when installing nl2codemodel -->
    ```sh
-   pip3 install rasa==2.2.8 rasa-sdk==2.2.0 tensorflow==2.3.4
+   pip3 install rasa==2.2.8 rasa-sdk==2.2.0 tensorflow==2.3.4 protobuf==3.14.0
    ```
 3. Clone repository (if not done yet)
    ```sh
