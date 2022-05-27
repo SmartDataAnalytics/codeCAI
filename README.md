@@ -207,5 +207,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Acknowledgments
-We thank the Center for Information Services and High Performance Computing (ZIH) at TU Dresden for generous allocations of computer time. We acknowledge the support of the following projects: ScaDS (01IS18026A), SPEAKER (FKZ 01MK20011A), JOSEPH (Fraunhofer Zukunftsstiftung), ML2R (FKZ 01 15 18038 A/B/C), MLwin (01IS18050 D/F), TAILOR (GA 952215).
+This work was supported by the German Federal Ministry of Education and Research (BMBF, 01IS18026A-D) by funding the competence center for Big Data and AI "ScaDS.AI Dresden/Leipzig".
+The authors gratefully acknowledge the GWK support for funding this project by providing computing time through the Center for Information Services and HPC (ZIH) at TU Dresden.
 <p align="right">(<a href="#top">back to top</a>)</p>
