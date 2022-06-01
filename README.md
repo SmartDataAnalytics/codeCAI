@@ -197,11 +197,10 @@ To test whether the tree-encoded Transformer learns to predict the AST structure
    <a href="https://www.youtube.com/watch?v=mto9XS1Bf1c"><img src="https://user-images.githubusercontent.com/5738212/170039371-f3f2d87d-eef5-4da2-8be4-f5750c98674b.png" alt="Language Models for Code Generation - ScaDS.AI Living Lab Lecture" style="width:538px;height:303px;margin:2ex;"></a>
    </p>
 
-2. [codeCAI Poster - Generating Code from Natural Language](https://github.com/SmartDataAnalytics/codeCAI/files/8762855/19_Poster_Generating_Code_from_Natural_Language.pdf)
+2. codeCAI Poster - [Generating Code from Natural Language](https://github.com/SmartDataAnalytics/codeCAI/files/8762855/19_Poster_Generating_Code_from_Natural_Language.pdf)
 
 
-3. [codeCAI Paper (arXiv) - Transformer with Tree-order Encoding for Neural Program Generation](https://github.com/SmartDataAnalytics/codeCAI/files/8798325/Transformer.with.Tree-order.Encoding.for.Neural.Program.Generation.pdf)
-
+3. codeCAI Paper ([OpenReview](https://openreview.net/forum?id=4TikzO9kxMC)) - [Transformer with Tree-order Encoding for Neural Program Generation](https://github.com/SmartDataAnalytics/codeCAI/files/8812823/transformer_with_tree_order_en.pdf)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
